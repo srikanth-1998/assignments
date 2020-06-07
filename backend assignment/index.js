@@ -1,0 +1,10 @@
+const express=require('express')
+const app=express()
+const order=require('./routes/order')
+const user=require('./routes/user')
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(order)
+app.use(user)
+const port = process.env.HTTP_PORT || 4200;
+app.listen(port)
